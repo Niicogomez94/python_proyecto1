@@ -24,3 +24,19 @@ urlpatterns = [
     path("",views.index, name= "index" )
 
 ]
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('agregar/', views.agregar_post, name='agregar_post'),
+    path('buscar/', views.buscar_post, name='buscar_post'),
+]
+ 
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('myapp/', include('myapp.urls')),
+]
